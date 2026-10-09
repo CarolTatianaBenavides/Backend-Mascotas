@@ -1,28 +1,19 @@
 import { Router } from 'express';
+import { createUser, deletetUser, getUser, updateUserPatch, updateUserPut, } from '../controllers/users.controllers.js';
 
 const router = Router();
 
 // Definicion de las rutas para usuarios
 
-router.get('/', (req, res) => {
-    res.json({ msg: 'Obtiene todos los usuarios' });
-});
+router.get('/', getUser);
 
-router.post('/', (req, res) => {
-    res.json({ msg: 'Registra usuario' });
-});
+router.post('/', createUser);
 
-router.put('/', (req, res) => {
-    res.json({ msg: 'Actualizar todos las propiedades de un usuario' });
-});
+router.put('/', updateUserPut);
 
-router.patch('/', (req, res) => {
-    res.json({ msg: 'Actualizar una o mas propiedades del usuario' });
-});
+router.patch('/', updateUserPatch );
 
-router.delete('/', (req, res) => {
-    res.json({ msg: 'Elimina un usuario' });
-});
+router.delete('/', deletetUser);
 
 
 export default router;
